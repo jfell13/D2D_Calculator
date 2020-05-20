@@ -3,6 +3,8 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+import webbrowser
+from threading import Timer
 from consumables import Consumables, build_graph
 from equipment import Equipment
 from reagents import Reagents
@@ -40,7 +42,15 @@ def update_graph(city):
     graph = build_graph(city)
     return graph
 
+#### App launching functions ######
+
+port = 8050 
+
+def open_browser():
+    webbrowser.open_new("http://localhost:{}".format(port))
+    
+application = app.server
+
 if __name__ == '__main__':
-    app.run_server(debug=True)
-    
-    
+    Timer(0, open_browser).start();
+    app.run_server(debug=True, port=port)

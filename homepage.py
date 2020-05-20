@@ -34,14 +34,14 @@ def Homepage():
     ])
     return layout
 
-def open_browser():
-    webbrowser.open_new("http://localhost:{}".format(port))
+# def open_browser():
+#     webbrowser.open_new("http://localhost:{}".format(port))
     
-app = dash.Dash(__name__, external_stylesheets = [dbc.themes.UNITED])
-app.layout = Homepage()
-port = 8050     
-application = app.server
+# app = dash.Dash(__name__, external_stylesheets = [dbc.themes.UNITED])
+# app.layout = Homepage()
+# port = 8050     
+# application = app.server
 
-if __name__ == '__main__':
-    Timer(0, open_browser).start();
-    app.run_server(debug=True, port=port)
+# if __name__ == '__main__':
+#     Timer(0, open_browser).start();
+#     app.run_server(debug=True, port=port)
